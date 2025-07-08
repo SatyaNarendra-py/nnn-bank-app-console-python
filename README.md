@@ -37,7 +37,6 @@ class Customer:
             print("\n🧾 Transaction History:")
             for txn in self.transactions:
                 print(txn)
-
     def _log_transaction(self, txn_type, amount):
         timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         entry = f"[{timestamp}] {txn_type}: ₹{amount:.2f} | Balance: ₹{self.balance:.2f}"
@@ -53,16 +52,12 @@ def get_valid_amount():
                 return amount
         except ValueError:
             print("❌ Invalid input. Please enter a numeric value.")
-
 def main():
     print(f"\n🏦 Welcome to {Customer.bankname}")
     name = input("Enter your name: ")
     pin = input("Set a 4-digit PIN: ")
     c = Customer(name, pin)
-
     print(f"🎉 Account created successfully! Your Account Number: {c.acc_no}")
-
-    # Simple login check
     while True:
         entered_pin = input("🔐 Enter your PIN to continue: ")
         if entered_pin == c.pin:
